@@ -86,7 +86,7 @@ exports.delete = async (req, res, next) => {
 exports.deleteAll = async (_req, res, next) => {
   try {
     const contactService = new ContactService(MongoDB.client);
-    const document = await contactService.deleteAll();
+    const deletedCount = await contactService.deleteAll();
     return res.send({
       message: `${deletedCount} contacts were deleted successfully`,
     });
